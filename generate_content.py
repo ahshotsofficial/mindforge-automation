@@ -7,19 +7,8 @@ if not api_key:
 
 genai.configure(api_key=api_key)
 
-# Automatically find an available text generation model
-supported_model = "gemini-1.5-flash"
-try:
-    for m in genai.list_models():
-        if "generateContent" in m.supported_generation_methods:
-            if "gemini" in m.name:
-                supported_model = m.name
-                break
-except Exception as e:
-    print(f"Listing models failed: {e}")
-
-print(f"Using model: {supported_model}")
-model = genai.GenerativeModel(supported_model)
+# Using official standard 2.0 flash model
+model = genai.GenerativeModel("gemini-2.0-flash")
 
 prompt = (
     "Generate 1 unique, engaging psychological concept or human behavior insight "
@@ -38,4 +27,4 @@ print(response.text)
 print("===================================")
 
 with open("latest_idea.txt", "w") as f:
-    f.write(response.text)
+    f.write(response.text
