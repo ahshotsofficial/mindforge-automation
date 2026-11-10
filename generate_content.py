@@ -1,29 +1,28 @@
-import os
-import google.generativeai as genai
+name: Daily Automation
 
-api_key = os.environ.get("GEMINI_API_KEY")
-if not api_key:
-    raise ValueError("GEMINI_API_KEY environment variable not found")
+on:
+  schedule:
+    - cron: "0 12 * * *"
+  workflow_dispatch:
 
-genai.configure(api_key=api_key)
+jobs:
+  mindforge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
 
-model = genai.GenerativeModel("gemini-2.0-flash")
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
 
-prompt = (
-    "Generate 1 unique, engaging psychological concept or human behavior insight "
-    "suitable for a silent animated stickman short video. "
-    "Provide:\n"
-    "1. Title\n"
-    "2. Core Lesson (1 sentence)\n"
-    "3. Scene-by-scene visual stickman animation ideas (no dialogue)\n"
-    "4. Short on-screen captions"
-)
+      - name: Install Dependencies
+        run: |
+          pip install google-genai
 
-response = model.generate_content(prompt)
-
-print("=== MINDFORGE GENERATED CONTENT ===")
-print(response.text)
-print("===================================")
-
-with open("latest_idea.txt", "w") as f:
-    f.write(response.text)
+      - name: Generate Mindforge Content
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          python generate_content.py
