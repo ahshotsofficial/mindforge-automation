@@ -7,7 +7,6 @@ if not api_key:
 
 genai.configure(api_key=api_key)
 
-# Using official standard 2.0 flash model
 model = genai.GenerativeModel("gemini-2.0-flash")
 
 prompt = (
@@ -27,4 +26,4 @@ print(response.text)
 print("===================================")
 
 with open("latest_idea.txt", "w") as f:
-    f.write(response.text
+    f.write(response.text)
