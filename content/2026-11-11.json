@@ -1,0 +1,78 @@
+{
+  "date": "2026-11-11",
+  "channel": "Mindforge",
+  "format": "YouTube Short - 60s, 9:16, silent, stickman animation",
+  "topic": "Hedonic Adaptation",
+  "titles": [
+    "Psychologists Beg You To Understand Hedonic Adaptation",
+    "This Is Why Hedonic Adaptation Feels Unstoppable",
+    "What Hedonic Adaptation Actually Is (Most People Get It Wrong)"
+  ],
+  "title": "Psychologists Beg You To Understand Hedonic Adaptation",
+  "hook": "This explains everything about your last bad week.",
+  "description": "Hedonic Adaptation — explained in 60 seconds.\n\nEvery upgrade becomes your boring baseline within weeks. Your brain resets happiness to neutral.\n\nWhat actually happens in your brain: Evolution can't let you stay satisfied — satisfaction stops the striving that kept ancestors alive. You're built to adapt.\n\nTry it today: Want more joy? Don't add. Pause and subtract familiarity: skip your favorite thing for 2 weeks.\n\nMindforge posts one 60-second psychology explainer every day. Follow so tomorrow's video finds you.\n\n#brainscience, #hedonicadaptation, #humanbehavior, #mentalhealth, #mindforge, #mindset, #neuroscience, #psychology, #psychologyfacts, #psychologyshorts, #selfimprovement\n\n#hedonicadaptation #shorts",
+  "tags": [
+    "brainscience",
+    "hedonicadaptation",
+    "humanbehavior",
+    "mentalhealth",
+    "mindforge",
+    "mindset",
+    "neuroscience",
+    "psychology",
+    "psychologyfacts",
+    "psychologyshorts",
+    "selfimprovement"
+  ],
+  "hashtags": "#brainscience, #hedonicadaptation, #humanbehavior, #mentalhealth, #mindforge, #mindset, #neuroscience, #psychology, #psychologyfacts, #psychologyshorts, #selfimprovement",
+  "scenes": [
+    {
+      "role": "HOOK",
+      "time": "0:00 - 0:03",
+      "duration": "3s",
+      "visual": "Stickman stares at viewer, blank face. A question mark pulses above his head. Black background, single white stick figure, thick lines.",
+      "overlay": "THIS EXPLAINS EVERYTHING ABOUT YOUR LAST BAD WEEK.",
+      "overlay_style": "Large bold, white, center screen. Pop-in animation at 0.2s."
+    },
+    {
+      "role": "SETUP",
+      "time": "0:03 - 0:15",
+      "duration": "12s",
+      "visual": "Stickman says/thinks the common belief. Show a speech bubble: 'The new phone will make you happy.' Then a red X strikes through it. Stickman's expression changes to confusion.",
+      "overlay": "THE NEW PHONE WILL MAKE YOU HAPPY.  ✗",
+      "overlay_style": "Speech-bubble style text, then red ✗ stamp over it at 0:08."
+    },
+    {
+      "role": "MECHANISM",
+      "time": "0:15 - 0:32",
+      "duration": "17s",
+      "visual": "Split screen: left stickman operates on 'auto' (gear icons spinning above head), right stickman 'sees the loop' (lightbulb). Simple line arrows connect them.",
+      "overlay": "Every upgrade becomes your boring baseline within weeks.\nYour brain resets happiness to neutral.",
+      "overlay_style": "Lower third, medium bold, white with thin black outline, appears at 0:16."
+    },
+    {
+      "role": "PROOF / CONTRAST",
+      "time": "0:32 - 0:48",
+      "duration": "16s",
+      "visual": "Stickman points at a simple chart/blackboard sketch on the wall (upward line or two contrasting bars). Keep drawing minimal: 2 shapes max.",
+      "overlay": "Lottery winners and paraplegics converged to\nnear-baseline happiness within a year —\nBrickman's famous 1978 study.",
+      "overlay_style": "Side panel text (right of stickman), medium size, yellow highlight bar behind key words."
+    },
+    {
+      "role": "PAYOFF / CTA",
+      "time": "0:48 - 0:60",
+      "duration": "12s",
+      "visual": "Stickman performs the action (use a simple matching prop: phone, pen, shoe, bed). Then he turns to camera, slight nod. Channel name appears.",
+      "overlay": "Want more joy? Don't add. Pause and subtract\nfamiliarity: skip your favorite thing for 2 weeks.",
+      "overlay_style": "Center screen, bold, white. Then 'MINDFORGE' logo-text fades in bottom center at 0:55."
+    }
+  ],
+  "capcut_notes": [
+    "Canvas: 1080x1920 (9:16). Background: solid black (#000000).",
+    "Stick figure: white (#FFFFFF), round stroke caps, ~14px stroke, no face details except expression changes.",
+    "No voiceover, no music required — but a soft lo-fi loop under 30% volume is allowed.",
+    "One text style set: bold sans (Inter Black / Montserrat ExtraBold), white, 2-3px black outline.",
+    "Total text on screen never exceeds 2 blocks at once. Max ~12 words per overlay.",
+    "Export: 30fps, H.264, bitrate 12-16 Mbps, under 60 seconds for the Shorts feed."
+  ]
+}

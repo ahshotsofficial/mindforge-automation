@@ -1,0 +1,45 @@
+name: Daily Mindforge Content
+
+on:
+  schedule:
+    # Runs every day at 06:00 UTC (= 07:00 CET / 01:00 ET in winter; GitHub cron is UTC).
+    # GitHub Actions can start up to ~15 min late — that's fine.
+    - cron: "0 6 * * *"
+  workflow_dispatch: {} # lets you trigger a run manually from the Actions tab
+
+permissions:
+  contents: write # required so the workflow can commit the generated files
+
+concurrency:
+  group: daily-content
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # full history so the rebase-and-push step always works
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate today's content
+        run: python generate.py
+
+      - name: Commit generated content
+        run: |
+          git config user.name "mindforge-bot"
+          git config user.email "actions@github.com"
+          git add content/
+          if git diff --cached --quiet; then
+            echo "No changes to commit (already generated today)."
+          else
+            git commit -m "chore(content): daily short for $(date -u +%Y-%m-%d)"
+            git pull --rebase origin ${GITHUB_REF_NAME}
+            git push origin HEAD:${GITHUB_REF_NAME}
+          fi
