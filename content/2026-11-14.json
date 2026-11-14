@@ -1,0 +1,78 @@
+{
+  "date": "2026-11-14",
+  "channel": "Mindforge",
+  "format": "YouTube Short - 60s, 9:16, silent, stickman animation",
+  "topic": "Self-Compassion Beats Self-Criticism",
+  "titles": [
+    "The Dark Truth About Self-Compassion Beats Self-Criticism",
+    "This Is Why Self-Compassion Beats Self-Criticism Feels Unstoppable",
+    "Psychologists Beg You To Understand Self-Compassion Beats Self-Criticism"
+  ],
+  "title": "The Dark Truth About Self-Compassion Beats Self-Criticism",
+  "hook": "This one diagram explains your whole mood.",
+  "description": "Self-Compassion Beats Self-Criticism — explained in 60 seconds.\n\nSelf-criticism predicts procrastination and quitting. Self-compassion predicts trying again.\n\nWhat actually happens in your brain: Harsh self-talk triggers threat mode — fight/flight about yourself. Threat mode is terrible for learning.\n\nTry it today: Talk to yourself like you'd talk to a friend who failed. Not softness — strategy.\n\nMindforge posts one 60-second psychology explainer every day. Follow so tomorrow's video finds you.\n\n#brainscience, #humanbehavior, #mentalhealth, #mindforge, #mindset, #neuroscience, #psychology, #psychologyfacts, #psychologyshorts, #selfcompassionbeatsselfcriticism, #selfimprovement\n\n#selfcompassionbeatsselfcriticism #shorts",
+  "tags": [
+    "brainscience",
+    "humanbehavior",
+    "mentalhealth",
+    "mindforge",
+    "mindset",
+    "neuroscience",
+    "psychology",
+    "psychologyfacts",
+    "psychologyshorts",
+    "selfcompassionbeatsselfcriticism",
+    "selfimprovement"
+  ],
+  "hashtags": "#brainscience, #humanbehavior, #mentalhealth, #mindforge, #mindset, #neuroscience, #psychology, #psychologyfacts, #psychologyshorts, #selfcompassionbeatsselfcriticism, #selfimprovement",
+  "scenes": [
+    {
+      "role": "HOOK",
+      "time": "0:00 - 0:03",
+      "duration": "3s",
+      "visual": "Stickman stares at viewer, blank face. A question mark pulses above his head. Black background, single white stick figure, thick lines.",
+      "overlay": "THIS ONE DIAGRAM EXPLAINS YOUR WHOLE MOOD.",
+      "overlay_style": "Large bold, white, center screen. Pop-in animation at 0.2s."
+    },
+    {
+      "role": "SETUP",
+      "time": "0:03 - 0:15",
+      "duration": "12s",
+      "visual": "Stickman says/thinks the common belief. Show a speech bubble: 'Being hard on yourself drives improvement.' Then a red X strikes through it. Stickman's expression changes to confusion.",
+      "overlay": "BEING HARD ON YOURSELF DRIVES IMPROVEMENT.  ✗",
+      "overlay_style": "Speech-bubble style text, then red ✗ stamp over it at 0:08."
+    },
+    {
+      "role": "MECHANISM",
+      "time": "0:15 - 0:32",
+      "duration": "17s",
+      "visual": "Split screen: left stickman operates on 'auto' (gear icons spinning above head), right stickman 'sees the loop' (lightbulb). Simple line arrows connect them.",
+      "overlay": "Self-criticism predicts procrastination and quitting. Self-compassion predicts trying\nagain.",
+      "overlay_style": "Lower third, medium bold, white with thin black outline, appears at 0:16."
+    },
+    {
+      "role": "PROOF / CONTRAST",
+      "time": "0:32 - 0:48",
+      "duration": "16s",
+      "visual": "Stickman points at a simple chart/blackboard sketch on the wall (upward line or two contrasting bars). Keep drawing minimal: 2 shapes max.",
+      "overlay": "Breines & Chen (2012): people prompted\nto be self-compassionate after failure spent\nMORE time practicing to improve.",
+      "overlay_style": "Side panel text (right of stickman), medium size, yellow highlight bar behind key words."
+    },
+    {
+      "role": "PAYOFF / CTA",
+      "time": "0:48 - 0:60",
+      "duration": "12s",
+      "visual": "Stickman performs the action (use a simple matching prop: phone, pen, shoe, bed). Then he turns to camera, slight nod. Channel name appears.",
+      "overlay": "Talk to yourself like you'd talk to a\nfriend who failed. Not softness — strategy.",
+      "overlay_style": "Center screen, bold, white. Then 'MINDFORGE' logo-text fades in bottom center at 0:55."
+    }
+  ],
+  "capcut_notes": [
+    "Canvas: 1080x1920 (9:16). Background: solid black (#000000).",
+    "Stick figure: white (#FFFFFF), round stroke caps, ~14px stroke, no face details except expression changes.",
+    "No voiceover, no music required — but a soft lo-fi loop under 30% volume is allowed.",
+    "One text style set: bold sans (Inter Black / Montserrat ExtraBold), white, 2-3px black outline.",
+    "Total text on screen never exceeds 2 blocks at once. Max ~12 words per overlay.",
+    "Export: 30fps, H.264, bitrate 12-16 Mbps, under 60 seconds for the Shorts feed."
+  ]
+}
