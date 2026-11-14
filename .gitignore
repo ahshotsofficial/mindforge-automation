@@ -3,3 +3,5 @@ __pycache__/
 output/
 *.mp4
 voice/
+client_secret*.json
+*token_store*.json

@@ -13,7 +13,9 @@ A `state.json` file tracks which topics have been used and which topic belongs t
 
 **Since Phase 1, the daily workflow also renders that package into a finished vertical video** (1080×1920 H.264 MP4, ~60s, 30fps) with animated stickman scenes, text overlays, transitions and a progress bar.
 
-**Since Phase 2, every video ships with natural AI narration** (Microsoft Edge neural voice) synchronized to the five scenes. MP4s are saved as GitHub Actions **artifacts** (retained 30 days) — never committed to the repo (`output/` and `voice/` are gitignored).
+**Since Phase 2, every video ships with natural AI narration** (Microsoft Edge neural voice) synchronized to the five scenes.
+
+**Since Phase 3, every daily video is also uploaded to your YouTube channel as a PRIVATE video** via the official YouTube Data API v3 — never published publicly; publishing stays under your manual control. MP4s and audio are saved as GitHub Actions **artifacts** (retained 30 days) — never committed to the repo (`output/` and `voice/` are gitignored).
 
 ## ✅ Requirements
 
@@ -112,6 +114,69 @@ The language of the content is auto-detected (English, Russian, Chinese, Japanes
 | Mixed voice quality in one video | One scene fell back to gTTS (edge flaked for that scene only). Retry, or pin `MF_TTS_ENGINE=edge`. |
 | ffmpeg not found | Set `MF_FFMPEG` to your ffmpeg path (imageio-ffmpeg is bundled via requirements). |
 
+## 📤 Phase 3 — Automatic private YouTube upload
+
+Once you complete the one-time Google Cloud setup below, every daily run also uploads the finished MP4 to **your** YouTube channel with `privacyStatus: private` via the official **YouTube Data API v3** (resumable upload, retries with backoff, verification). **Nothing is ever published publicly** — publishing requires you to flip visibility manually in YouTube Studio.
+
+Key behaviors:
+
+- **Minimum scope:** only `https://www.googleapis.com/auth/youtube.upload`.
+- **Unattended runs:** GitHub Actions uses the stored **refresh token** to obtain access tokens at runtime (tokens live in memory only — never logged, never committed).
+- **Deduplication:** `content/uploads.json` maps each content date to its video id — rerunning a workflow never duplicates an upload. (The ledger contains only ids/URLs, never tokens.)
+- **Metadata:** title, description, tags and category (Education) come from the generated package.
+- **Verification:** `videos.insert` returns the full created video resource — the uploader reads `status.privacyStatus` straight from Google's response and fails loudly if it is anything but `private`. This needs **zero extra API calls and zero extra scope** (a `videos.list` re-check would require the broader `youtube.readonly` scope, which this project deliberately does not request). Results (video id + private URL) land in `content/uploads.json` and the Actions log.
+- **Fail-soft but loud:** a Google-side outage never blocks artifact upload or content commits — failures produce a GitHub `::warning` annotation and a step summary line, and the next run retries (dedup prevents duplicates).
+
+### ⚠️ OAuth "Testing" vs "Production" — read this first
+
+Per [Google's OAuth documentation](https://developers.google.com/identity/protocols/oauth2):
+
+> *"A Google Cloud Platform project with an OAuth consent screen configured for an external user type and a publishing status of **Testing** is issued a refresh token **expiring in 7 days**."*
+
+That means: if your consent screen stays in **Testing**, daily automation **breaks every week** — you would have to re-authorize every 7 days. The correct setup is:
+
+1. Configure the OAuth consent screen (External, your name/email) **and then click "PUBLISH APP" → "In production"**.
+2. Because `youtube.upload` is a *sensitive scope*, Google shows an **"unverified app" warning** the first time *you* authorize — click **Advanced → Go to app (unsafe)**. That is fine for personal use: Google verification is only required when *other people* use your app, not for authorizing your own channel with your own client.
+3. With the app in **Production** status, the refresh token does **not** expire after 7 days and daily unattended uploads work indefinitely. (A token can still be invalidated if you revoke the app's access, change the account password, or don't use it for 6 months — `youtube_auth.py` re-issues one in a minute.)
+
+### 🔧 Google Cloud setup (one time, ~10 minutes)
+
+1. **Create a project**: [console.cloud.google.com](https://console.cloud.google.com) → top bar → **New project** (e.g. `mindforge`).
+2. **Enable the API**: *APIs & Services → Library* → search **"YouTube Data API v3"** → **Enable**.
+3. **Configure the consent screen**: *APIs & Services → OAuth consent screen* → User type **External** → fill in app name + your email → Save → then **"PUBLISH APP" → In production** (see the warning above — this step is what makes daily automation permanent).
+4. **Create OAuth credentials**: *Credentials → Create credentials → OAuth client ID* → Application type **Desktop app** → **Create** → download the JSON (`client_secret_xxx.json`) and keep it **on your local machine only** (it is gitignored).
+5. **Authorize once** (on your own computer, not CI):
+   ```bash
+   pip install -r requirements.txt
+   set YOUTUBE_CLIENT_ID=your-client-id.apps.googleusercontent.com
+   set YOUTUBE_CLIENT_SECRET=your-client-secret
+   python youtube_auth.py
+   ```
+   A browser opens → sign in with the Google account that owns the channel → accept the *unverified app* warning (Advanced → Go to app). The script prints your **refresh token** once.
+6. **Add the three GitHub secrets** (repo → *Settings → Secrets and variables → Actions → New repository secret*):
+   | Secret name | Value |
+   |---|---|
+   | `YOUTUBE_CLIENT_ID` | from step 4 |
+   | `YOUTUBE_CLIENT_SECRET` | from step 4 |
+   | `YOUTUBE_REFRESH_TOKEN` | the token printed by `youtube_auth.py` |
+
+   🔒 Paste them only into GitHub Secrets — never into chat, files or commits. The bootstrap script never writes tokens to disk.
+
+Until the secrets exist, the workflow simply logs `[skip] YouTube upload not configured` and everything else runs as before.
+
+### Quota note
+
+`videos.insert` costs **1,600 quota units**; a default Google Cloud project has **10,000 units/day** — one daily upload fits comfortably.
+
+### Troubleshooting (Phase 3)
+
+| Symptom | Fix |
+|---|---|
+| `invalid_grant` in the upload step | Refresh token revoked/expired (app access revoked, password change, 6 months unused). Re-run `youtube_auth.py` and update the `YOUTUBE_REFRESH_TOKEN` secret. |
+| `quotaExceeded` | Daily API quota used up (6+ uploads/day). Raise quota in Google Cloud or wait for UTC midnight reset. |
+| Step red but video uploaded anyway | Transient error exhausted retries mid-chunk; the next run uploads normally (dedup keeps each date unique). |
+| Uploaded video "missing" in Studio | It is there — private videos may take a minute to process. Check `content/uploads.json` for the URL or your channel's Videos list. |
+
 ## 📁 File map
 
 | Path | Purpose |
@@ -121,13 +186,17 @@ The language of the content is auto-detected (English, Russian, Chinese, Japanes
 | `narrator.py` | Phase 2 voiceover: package → synchronized 60s narration track (edge-tts + gTTS fallback) |
 | `test_render.py` | Phase 1 test suite (`python test_render.py`) |
 | `test_narrator.py` | Phase 2 test suite (`python test_narrator.py`) |
+| `test_uploader.py` | Phase 3 test suite (`python test_uploader.py`, mocked API — never uploads for real) |
+| `youtube_uploader.py` | Phase 3 private YouTube uploader (Data API v3, resumable + dedup) |
+| `youtube_auth.py` | One-time local OAuth bootstrap (run on your machine, prints refresh token) |
+| `content/uploads.json` | Upload ledger: video ids + private URLs per date (no tokens) |
 | `requirements.txt` | Dependencies (Pillow, imageio-ffmpeg, edge-tts, gTTS) |
 | `content/YYYY-MM-DD.md` | Daily package, human-readable |
 | `content/YYYY-MM-DD.json` | Same package, machine-readable (includes per-scene `narration`) |
 | `content/state.json` | Tracks used topics, per-date topic map and history (no repeats) |
 | `output/*.mp4` | Rendered videos (gitignored; uploaded as Actions artifacts) |
 | `voice/<date>/` | TTS audio, fitted scene tracks, `narration.wav`, `report.json` (gitignored) |
-| `.github/workflows/daily-content.yml` | The daily scheduler: generate → voiceover → render → artifact |
+| `.github/workflows/daily-content.yml` | The daily scheduler: generate → voiceover → render → private upload → artifact |
 
 ## 🎬 Using the output in CapCut
 

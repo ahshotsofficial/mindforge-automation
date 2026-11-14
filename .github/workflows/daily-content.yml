@@ -55,6 +55,25 @@ jobs:
           retention-days: 30
           if-no-files-found: error
 
+      - name: Upload to YouTube (PRIVATE)
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+        # continue-on-error keeps artifact upload + content commits safe, but
+        # failures are made LOUD: ::warning annotation + a step summary line.
+        continue-on-error: true
+        run: |
+          DATE=$(date -u +%Y-%m-%d)
+          if ! python youtube_uploader.py content/${DATE}.json --video=output/${DATE}.mp4; then
+            echo "::warning::YouTube upload FAILED for ${DATE}. The MP4 artifact is intact; the next run will retry (dedup prevents duplicates)."
+            {
+              echo "## :warning: YouTube upload failed (${DATE})"
+              echo ""
+              echo "The rendered MP4 is still safe as the \`mindforge-short\` artifact. The next scheduled run retries automatically; deduplication prevents duplicate uploads."
+            } >> "${GITHUB_STEP_SUMMARY}"
+          fi
+
       - name: Commit generated content
         run: |
           git config user.name "mindforge-bot"
