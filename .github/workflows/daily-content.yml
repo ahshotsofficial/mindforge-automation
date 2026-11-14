@@ -28,14 +28,24 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install dependencies (rendering + TTS)
+        run: pip install -r requirements.txt
+
       - name: Generate today's content
         run: python generate.py
 
-      - name: Install rendering dependencies
-        run: pip install -r requirements.txt
+      - name: Generate narration voiceover (TTS)
+        run: |
+          DATE=$(date -u +%Y-%m-%d)
+          python narrator.py content/${DATE}.json --outdir voice/${DATE}
+        # If TTS fails (network, 403, timeout), the pipeline stops here -
+        # a silent video is never produced and the run is marked failed.
 
-      - name: Render today's video (1080x1920 MP4)
-        run: python render.py content/$(date -u +%Y-%m-%d).json --out output/$(date -u +%Y-%m-%d).mp4
+      - name: Render today's video (1080x1920 MP4 with narration)
+        run: |
+          DATE=$(date -u +%Y-%m-%d)
+          python render.py content/${DATE}.json --out output/${DATE}.mp4 \
+            --audio=voice/${DATE}/narration.wav
 
       - name: Upload video artifact
         uses: actions/upload-artifact@v4

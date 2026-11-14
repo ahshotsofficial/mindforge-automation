@@ -440,7 +440,7 @@ def resolve_ffmpeg():
         )
 
 
-def render_video(pkg, out_path, width=W, height=H, fps=FPS, max_t=None, preset="medium", crf="20"):
+def render_video(pkg, out_path, width=W, height=H, fps=FPS, max_t=None, preset="medium", crf="20", audio_path=None):
     global SCENE_EDGES
     edges = parse_scenes(pkg)
     SCENE_EDGES = edges
@@ -457,14 +457,30 @@ def render_video(pkg, out_path, width=W, height=H, fps=FPS, max_t=None, preset="
     out_path = Path(out_path)
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
+    # Phase 2: build ONE ffmpeg command - silent (-an) or with narration muxed.
     cmd = [
         resolve_ffmpeg(), "-y",
         "-f", "rawvideo", "-pix_fmt", "rgb24",
         "-s", f"{width}x{height}", "-r", str(fps), "-i", "-",
-        "-an", "-c:v", "libx264", "-preset", preset, "-crf", crf,
-        "-pix_fmt", "yuv420p", "-movflags", "+faststart",
-        str(out_path),
     ]
+    if audio_path:
+        # Mux narration: -shortest keeps the 60.00s duration exact (video is
+        # exactly 60s and the narration track is built to 60s as well).
+        cmd += [
+            "-i", str(audio_path),
+            "-map", "0:v", "-map", "1:a",
+            "-c:v", "libx264", "-preset", preset, "-crf", crf,
+            "-pix_fmt", "yuv420p", "-movflags", "+faststart",
+            "-c:a", "aac", "-b:a", "160k",
+            "-shortest",
+            str(out_path),
+        ]
+    else:
+        cmd += [
+            "-an", "-c:v", "libx264", "-preset", preset, "-crf", crf,
+            "-pix_fmt", "yuv420p", "-movflags", "+faststart",
+            str(out_path),
+        ]
     proc = subprocess.Popen(cmd, stdin=subprocess.PIPE,
                             stdout=subprocess.DEVNULL, stderr=subprocess.PIPE)
     try:
@@ -502,13 +518,21 @@ def main(argv):
     pkg = json.loads(json_path.read_text(encoding="utf-8"))
 
     preview = "--preview" in flags
+    audio = {}
+    for a in argv[1:]:
+        if a.startswith("--audio="):
+            p = Path(a.split("=", 1)[1])
+            if not p.exists():
+                print(f"[error] narration audio not found: {p}", file=sys.stderr)
+                return 1
+            audio["audio_path"] = p
     if preview:
         out = ROOT / "output" / f"preview_{json_path.stem}.mp4"
         render_video(pkg, out, width=270, height=480, fps=10, max_t=6.0,
-                     preset="ultrafast", crf="28")
+                     preset="ultrafast", crf="28", **audio)
     else:
         out = Path(args[1]) if len(args) > 1 else ROOT / "output" / f"{json_path.stem}.mp4"
-        render_video(pkg, out)
+        render_video(pkg, out, **audio)
 
     print(f"[ok] rendered {out}")
     return 0

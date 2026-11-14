@@ -588,11 +588,13 @@ def build_package(date_str):
         f"#{topic_slug} #shorts"
     )
 
-    return {
+    pkg = {
         "date": date_str,
         "channel": "Mindforge",
-        "format": "YouTube Short - 60s, 9:16, silent, stickman animation",
+        "format": "YouTube Short - 60s, 9:16, stickman animation",
         "topic": topic,
+        "truth": entry["truth"],          # spoken narration source (Phase 2)
+        "mechanism": entry["mechanism"],  # spoken narration source (Phase 2)
         "titles": [title] + alt_titles[:2],
         "title": title,
         "hook": hook,
@@ -609,6 +611,15 @@ def build_package(date_str):
             "Export: 30fps, H.264, bitrate 12-16 Mbps, under 60 seconds for the Shorts feed.",
         ],
     }
+    # Phase 2: dedicated narration lines per scene (backward-compatible field).
+    # Lazy import + graceful fallback so the generator still runs without the
+    # rendering/voiceover dependencies installed.
+    try:
+        import narrator
+        pkg["narration"] = narrator.build_narration(pkg)
+    except Exception:
+        pkg["narration"] = []
+    return pkg
 
 
 def _wrap(text, short=False):
@@ -687,6 +698,13 @@ def render_markdown(pkg):
 ---
 
 """
+    md += "## 🎙️ Narration (Phase 2)\n\n"
+    nar = pkg.get("narration") or []
+    if nar:
+        for i, line in enumerate(nar, 1):
+            md += f"**Scene {i}:** {line}\n\n"
+    else:
+        md += "_Not generated for this package (legacy content)._\n\n"
     md += "## ⚙️ CapCut Notes\n\n"
     for note in pkg["capcut_notes"]:
         md += f"- {note}\n"
