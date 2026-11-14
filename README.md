@@ -11,24 +11,35 @@ Generates one complete 60-second YouTube Shorts video package every day, automat
 Output lands in `content/` as both **Markdown** (human-friendly) and **JSON** (machine-friendly).
 A `state.json` file tracks which topics have been used and which topic belongs to each date, so content never repeats within a cycle (the 48-topic bank cycles every ~7 weeks; rotating title/hook variants keep repeat topics feeling fresh).
 
+**Since Phase 1, the daily workflow also renders that package into a finished vertical video** (1080×1920 H.264 MP4, ~60s, 30fps) with animated stickman scenes, text overlays, transitions and a progress bar. MP4s are saved as GitHub Actions **artifacts** (retained 30 days) — never committed to the repo (`output/` is gitignored).
+
 ## ✅ Requirements
 
-- Python 3.8+ (nothing to install — stdlib only)
+- Python 3.8+ (the **generator** itself is stdlib-only)
+- For **video rendering**: `pip install -r requirements.txt` (Pillow + imageio-ffmpeg, which bundles ffmpeg — no system install needed). On GitHub Actions ubuntu runners, ffmpeg is already preinstalled.
 
 ## 🏠 Run locally
 
 ```bash
 cd mindforge
-python generate.py
+python generate.py            # create today's content package
+python render.py              # render it to output/YYYY-MM-DD.mp4 (1080x1920, ~60s)
+python render.py --preview    # fast low-res test render (270x480, first 6s)
 ```
 
-Today's files appear in `content/YYYY-MM-DD.md` and `content/YYYY-MM-DD.json`.
-
-To regenerate the same day (overwrites today's files; the previously recorded topic is un-marked and a fresh one is picked):
+Render a specific package:
 
 ```bash
-python generate.py --force
+python render.py content/2026-11-12.json --out output/my.mp4
 ```
+
+Run the test suite:
+
+```bash
+python test_render.py         # unit tests + one real-MP4 integration test
+```
+
+The generator keeps its original flags: `python generate.py` (creates today's package, skips if it exists) and `python generate.py --force` (overwrites today's files; the previously recorded topic is un-marked and a fresh one is picked).
 
 ## ☁️ Set up the daily automation (GitHub Actions)
 
@@ -68,11 +79,15 @@ automatically use GPT-4o-mini to punch up the overlays. Without the key, the bui
 
 | Path | Purpose |
 |---|---|
-| `generate.py` | The generator (idea bank + template engine + optional LLM) |
+| `generate.py` | The daily content generator (idea bank + template engine + optional LLM) |
+| `render.py` | Phase 1 renderer: JSON package → 1080×1920 stickman MP4 |
+| `test_render.py` | Renderer test suite (`python test_render.py`) |
+| `requirements.txt` | Rendering dependencies (Pillow, imageio-ffmpeg) |
 | `content/YYYY-MM-DD.md` | Daily package, human-readable |
 | `content/YYYY-MM-DD.json` | Same package, machine-readable |
 | `content/state.json` | Tracks used topics, per-date topic map and history (no repeats) |
-| `.github/workflows/daily-content.yml` | The daily scheduler |
+| `output/*.mp4` | Rendered videos (gitignored; uploaded as Actions artifacts) |
+| `.github/workflows/daily-content.yml` | The daily scheduler: generate → render → artifact |
 
 ## 🎬 Using the output in CapCut
 
