@@ -1,20 +1,23 @@
 {
   "used_topics": [
     "Gratitude's Mechanics",
-    "Hedonic Adaptation",
     "Dopamine Detox",
+    "The Paradox of Choice",
+    "Hedonic Adaptation",
     "Self-Compassion Beats Self-Criticism"
   ],
   "history": [
     "2026-11-11",
     "2026-11-12",
     "2026-11-13",
-    "2026-11-14"
+    "2026-11-14",
+    "2026-11-15"
   ],
   "topics_by_date": {
     "2026-11-11": "Hedonic Adaptation",
     "2026-11-12": "Dopamine Detox",
     "2026-11-13": "Gratitude's Mechanics",
-    "2026-11-14": "Self-Compassion Beats Self-Criticism"
+    "2026-11-14": "Self-Compassion Beats Self-Criticism",
+    "2026-11-15": "The Paradox of Choice"
   }
 }
