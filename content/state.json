@@ -1,11 +1,12 @@
 {
   "used_topics": [
-    "Dopamine Detox",
     "The Paradox of Choice",
-    "Anchoring",
     "Self-Compassion Beats Self-Criticism",
+    "Hedonic Adaptation",
+    "Dopamine Detox",
     "Gratitude's Mechanics",
-    "Hedonic Adaptation"
+    "The IKEA Effect",
+    "Anchoring"
   ],
   "history": [
     "2026-11-11",
@@ -13,7 +14,8 @@
     "2026-11-13",
     "2026-11-14",
     "2026-11-15",
-    "2026-11-16"
+    "2026-11-16",
+    "2026-11-17"
   ],
   "topics_by_date": {
     "2026-11-11": "Hedonic Adaptation",
@@ -21,6 +23,7 @@
     "2026-11-13": "Gratitude's Mechanics",
     "2026-11-14": "Self-Compassion Beats Self-Criticism",
     "2026-11-15": "The Paradox of Choice",
-    "2026-11-16": "Anchoring"
+    "2026-11-16": "Anchoring",
+    "2026-11-17": "The IKEA Effect"
   }
 }
