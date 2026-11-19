@@ -35,9 +35,11 @@ SCOPE = "https://www.googleapis.com/auth/youtube.upload"
 
 
 def main(argv):
-    args = [a for a in argv[1:] if not a.startswith("--")]
-    opts = dict(a.split("=", 1) for a in argv[1:]
-                if a.startswith("--") and "=" in a)
+    opts = {}
+    for a in argv[1:]:
+        if a.startswith("--") and "=" in a:
+            key, value = a.split("=", 1)
+            opts[key.lstrip("-")] = value.strip('"')
 
     client_id = os.environ.get("YOUTUBE_CLIENT_ID")
     client_secret = os.environ.get("YOUTUBE_CLIENT_SECRET")
