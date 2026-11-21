@@ -1,14 +1,15 @@
 {
   "used_topics": [
     "The Paradox of Choice",
+    "Flow State",
     "Time Affluence",
+    "The IKEA Effect",
+    "Anchoring",
     "The Two-Minute Rule",
     "Egocentric Bias",
     "Gratitude's Mechanics",
-    "Dopamine Detox",
-    "The IKEA Effect",
     "Hedonic Adaptation",
-    "Anchoring",
+    "Dopamine Detox",
     "Self-Compassion Beats Self-Criticism"
   ],
   "history": [
@@ -21,7 +22,8 @@
     "2026-11-17",
     "2026-11-18",
     "2026-11-19",
-    "2026-11-20"
+    "2026-11-20",
+    "2026-11-21"
   ],
   "topics_by_date": {
     "2026-11-11": "Hedonic Adaptation",
@@ -33,6 +35,7 @@
     "2026-11-17": "The IKEA Effect",
     "2026-11-18": "Egocentric Bias",
     "2026-11-19": "The Two-Minute Rule",
-    "2026-11-20": "Time Affluence"
+    "2026-11-20": "Time Affluence",
+    "2026-11-21": "Flow State"
   }
 }
