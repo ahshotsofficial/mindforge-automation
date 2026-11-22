@@ -1,0 +1,87 @@
+{
+  "date": "2026-11-22",
+  "channel": "Mindforge",
+  "format": "YouTube Short - 60s, 9:16, stickman animation",
+  "topic": "The Ben Franklin Effect",
+  "truth": "We come to like people we've helped. The action comes first; the feeling follows.",
+  "mechanism": "Your brain needs a story for why you did a favor. 'I must like them' gets written retroactively.",
+  "titles": [
+    "Your Brain Uses The Ben Franklin Effect Against You — Here's the Fix",
+    "This Is Why The Ben Franklin Effect Feels Unstoppable",
+    "The The Ben Franklin Effect Trick Your Brain Hides From You"
+  ],
+  "title": "Your Brain Uses The Ben Franklin Effect Against You — Here's the Fix",
+  "hook": "Psychologists have known this for 40 years.",
+  "description": "The Ben Franklin Effect — explained in 60 seconds.\n\nWe come to like people we've helped. The action comes first; the feeling follows.\n\nWhat actually happens in your brain: Your brain needs a story for why you did a favor. 'I must like them' gets written retroactively.\n\nTry it today: Want to connect with someone? Ask THEM for a small favor. Works on them — and on you.\n\nMindforge posts one 60-second psychology explainer every day. Follow so tomorrow's video finds you.\n\n#brainscience, #humanbehavior, #mentalhealth, #mindforge, #mindset, #neuroscience, #psychology, #psychologyfacts, #psychologyshorts, #selfimprovement, #thebenfranklineffect\n\n#thebenfranklineffect #shorts",
+  "tags": [
+    "brainscience",
+    "humanbehavior",
+    "mentalhealth",
+    "mindforge",
+    "mindset",
+    "neuroscience",
+    "psychology",
+    "psychologyfacts",
+    "psychologyshorts",
+    "selfimprovement",
+    "thebenfranklineffect"
+  ],
+  "hashtags": "#brainscience, #humanbehavior, #mentalhealth, #mindforge, #mindset, #neuroscience, #psychology, #psychologyfacts, #psychologyshorts, #selfimprovement, #thebenfranklineffect",
+  "scenes": [
+    {
+      "role": "HOOK",
+      "time": "0:00 - 0:03",
+      "duration": "3s",
+      "visual": "Stickman stares at viewer, blank face. A question mark pulses above his head. Black background, single white stick figure, thick lines.",
+      "overlay": "PSYCHOLOGISTS HAVE KNOWN THIS FOR 40 YEARS.",
+      "overlay_style": "Large bold, white, center screen. Pop-in animation at 0.2s."
+    },
+    {
+      "role": "SETUP",
+      "time": "0:03 - 0:15",
+      "duration": "12s",
+      "visual": "Stickman says/thinks the common belief. Show a speech bubble: 'We help people we like.' Then a red X strikes through it. Stickman's expression changes to confusion.",
+      "overlay": "WE HELP PEOPLE WE LIKE.  ✗",
+      "overlay_style": "Speech-bubble style text, then red ✗ stamp over it at 0:08."
+    },
+    {
+      "role": "MECHANISM",
+      "time": "0:15 - 0:32",
+      "duration": "17s",
+      "visual": "Split screen: left stickman operates on 'auto' (gear icons spinning above head), right stickman 'sees the loop' (lightbulb). Simple line arrows connect them.",
+      "overlay": "We come to like people we've helped. The\naction comes first; the feeling follows.",
+      "overlay_style": "Lower third, medium bold, white with thin black outline, appears at 0:16."
+    },
+    {
+      "role": "PROOF / CONTRAST",
+      "time": "0:32 - 0:48",
+      "duration": "16s",
+      "visual": "Stickman points at a simple chart/blackboard sketch on the wall (upward line or two contrasting bars). Keep drawing minimal: 2 shapes max.",
+      "overlay": "Jecker & Landy (1969): people who'd\ndone a researcher a favor rated\nhim warmer than those he'd done\na favor for.",
+      "overlay_style": "Side panel text (right of stickman), medium size, yellow highlight bar behind key words."
+    },
+    {
+      "role": "PAYOFF / CTA",
+      "time": "0:48 - 0:60",
+      "duration": "12s",
+      "visual": "Stickman performs the action (use a simple matching prop: phone, pen, shoe, bed). Then he turns to camera, slight nod. Channel name appears.",
+      "overlay": "Want to connect with someone? Ask THEM for\na small favor. Works on them — and\non you.",
+      "overlay_style": "Center screen, bold, white. Then 'MINDFORGE' logo-text fades in bottom center at 0:55."
+    }
+  ],
+  "capcut_notes": [
+    "Canvas: 1080x1920 (9:16). Background: solid black (#000000).",
+    "Stick figure: white (#FFFFFF), round stroke caps, ~14px stroke, no face details except expression changes.",
+    "No voiceover, no music required — but a soft lo-fi loop under 30% volume is allowed.",
+    "One text style set: bold sans (Inter Black / Montserrat ExtraBold), white, 2-3px black outline.",
+    "Total text on screen never exceeds 2 blocks at once. Max ~12 words per overlay.",
+    "Export: 30fps, H.264, bitrate 12-16 Mbps, under 60 seconds for the Shorts feed."
+  ],
+  "narration": [
+    "Psychologists have known this for 40 years.",
+    "You probably believe this: WE HELP PEOPLE WE LIKE. But that's not the full story.",
+    "We come to like people we've helped. The action comes first; the feeling follows. Here's what's happening: Your brain needs a story for why you did a favor. 'I must like them' gets written retroactively.",
+    "Jecker & Landy in 1969, people who'd done a researcher a favor rated him warmer than those he'd done a favor for.",
+    "Want to connect with someone? Ask THEM for a small favor. Works on them, and on you. That's your Mindforge move for today. Follow for tomorrow's."
+  ]
+}
