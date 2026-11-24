@@ -1,18 +1,19 @@
 {
   "used_topics": [
+    "Self-Compassion Beats Self-Criticism",
+    "Flow State",
+    "Anchoring",
+    "The Paradox of Choice",
+    "The IKEA Effect",
+    "Decision Fatigue",
     "The Ben Franklin Effect",
+    "The Two-Minute Rule",
+    "Gratitude's Mechanics",
     "The Midpoint Motivation Spike",
     "Egocentric Bias",
-    "Time Affluence",
-    "Flow State",
-    "The Two-Minute Rule",
-    "The Paradox of Choice",
-    "Anchoring",
-    "The IKEA Effect",
     "Dopamine Detox",
     "Hedonic Adaptation",
-    "Self-Compassion Beats Self-Criticism",
-    "Gratitude's Mechanics"
+    "Time Affluence"
   ],
   "history": [
     "2026-11-11",
@@ -27,7 +28,8 @@
     "2026-11-20",
     "2026-11-21",
     "2026-11-22",
-    "2026-11-23"
+    "2026-11-23",
+    "2026-11-24"
   ],
   "topics_by_date": {
     "2026-11-11": "Hedonic Adaptation",
@@ -42,6 +44,7 @@
     "2026-11-20": "Time Affluence",
     "2026-11-21": "Flow State",
     "2026-11-22": "The Ben Franklin Effect",
-    "2026-11-23": "The Midpoint Motivation Spike"
+    "2026-11-23": "The Midpoint Motivation Spike",
+    "2026-11-24": "Decision Fatigue"
   }
 }

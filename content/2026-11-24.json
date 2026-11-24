@@ -1,0 +1,87 @@
+{
+  "date": "2026-11-24",
+  "channel": "Mindforge",
+  "format": "YouTube Short - 60s, 9:16, stickman animation",
+  "topic": "Decision Fatigue",
+  "truth": "Every decision drains the same fuel tank. By evening, your brain picks whatever's easiest.",
+  "mechanism": "Judges grant parole ~65% at the start of sessions and near 0% before breaks. Not cruel — depleted.",
+  "titles": [
+    "What Decision Fatigue Actually Is (Most People Get It Wrong)",
+    "Decision Fatigue: The 60-Second Explanation That Changes Everything",
+    "The Decision Fatigue Trick Your Brain Hides From You"
+  ],
+  "title": "What Decision Fatigue Actually Is (Most People Get It Wrong)",
+  "hook": "Once you see this, you can't unsee it.",
+  "description": "Decision Fatigue — explained in 60 seconds.\n\nEvery decision drains the same fuel tank. By evening, your brain picks whatever's easiest.\n\nWhat actually happens in your brain: Judges grant parole ~65% at the start of sessions and near 0% before breaks. Not cruel — depleted.\n\nTry it today: Decide tonight: clothes, breakfast, first task. Save your 3pm brain from your 9am brain.\n\nMindforge posts one 60-second psychology explainer every day. Follow so tomorrow's video finds you.\n\n#brainscience, #decisionfatigue, #humanbehavior, #mentalhealth, #mindforge, #mindset, #neuroscience, #psychology, #psychologyfacts, #psychologyshorts, #selfimprovement\n\n#decisionfatigue #shorts",
+  "tags": [
+    "brainscience",
+    "decisionfatigue",
+    "humanbehavior",
+    "mentalhealth",
+    "mindforge",
+    "mindset",
+    "neuroscience",
+    "psychology",
+    "psychologyfacts",
+    "psychologyshorts",
+    "selfimprovement"
+  ],
+  "hashtags": "#brainscience, #decisionfatigue, #humanbehavior, #mentalhealth, #mindforge, #mindset, #neuroscience, #psychology, #psychologyfacts, #psychologyshorts, #selfimprovement",
+  "scenes": [
+    {
+      "role": "HOOK",
+      "time": "0:00 - 0:03",
+      "duration": "3s",
+      "visual": "Stickman stares at viewer, blank face. A question mark pulses above his head. Black background, single white stick figure, thick lines.",
+      "overlay": "ONCE YOU SEE THIS, YOU CAN'T UNSEE IT.",
+      "overlay_style": "Large bold, white, center screen. Pop-in animation at 0.2s."
+    },
+    {
+      "role": "SETUP",
+      "time": "0:03 - 0:15",
+      "duration": "12s",
+      "visual": "Stickman says/thinks the common belief. Show a speech bubble: 'You're lazy after 3pm.' Then a red X strikes through it. Stickman's expression changes to confusion.",
+      "overlay": "YOU'RE LAZY AFTER 3PM.  ✗",
+      "overlay_style": "Speech-bubble style text, then red ✗ stamp over it at 0:08."
+    },
+    {
+      "role": "MECHANISM",
+      "time": "0:15 - 0:32",
+      "duration": "17s",
+      "visual": "Split screen: left stickman operates on 'auto' (gear icons spinning above head), right stickman 'sees the loop' (lightbulb). Simple line arrows connect them.",
+      "overlay": "Every decision drains the same fuel tank. By\nevening, your brain picks whatever's easiest.",
+      "overlay_style": "Lower third, medium bold, white with thin black outline, appears at 0:16."
+    },
+    {
+      "role": "PROOF / CONTRAST",
+      "time": "0:32 - 0:48",
+      "duration": "16s",
+      "visual": "Stickman points at a simple chart/blackboard sketch on the wall (upward line or two contrasting bars). Keep drawing minimal: 2 shapes max.",
+      "overlay": "Danziger et al. (2011), PNAS: favorable\nrulings peaked at session start and\ndropped to near-zero before food breaks.",
+      "overlay_style": "Side panel text (right of stickman), medium size, yellow highlight bar behind key words."
+    },
+    {
+      "role": "PAYOFF / CTA",
+      "time": "0:48 - 0:60",
+      "duration": "12s",
+      "visual": "Stickman performs the action (use a simple matching prop: phone, pen, shoe, bed). Then he turns to camera, slight nod. Channel name appears.",
+      "overlay": "Decide tonight: clothes, breakfast, first task. Save your\n3pm brain from your 9am brain.",
+      "overlay_style": "Center screen, bold, white. Then 'MINDFORGE' logo-text fades in bottom center at 0:55."
+    }
+  ],
+  "capcut_notes": [
+    "Canvas: 1080x1920 (9:16). Background: solid black (#000000).",
+    "Stick figure: white (#FFFFFF), round stroke caps, ~14px stroke, no face details except expression changes.",
+    "No voiceover, no music required — but a soft lo-fi loop under 30% volume is allowed.",
+    "One text style set: bold sans (Inter Black / Montserrat ExtraBold), white, 2-3px black outline.",
+    "Total text on screen never exceeds 2 blocks at once. Max ~12 words per overlay.",
+    "Export: 30fps, H.264, bitrate 12-16 Mbps, under 60 seconds for the Shorts feed."
+  ],
+  "narration": [
+    "Once you see this, you can't unsee it.",
+    "You probably believe this: YOU'RE LAZY AFTER 3PM. But that's not the full story.",
+    "Every decision drains the same fuel tank. By evening, your brain picks whatever's easiest. Here's what's happening: Judges grant parole about 65% at the start of sessions and near 0% before breaks. Not cruel, depleted.",
+    "Danziger and colleagues, in 2011,, PNAS: favorable rulings peaked at session start and dropped to near-zero before food breaks.",
+    "Decide tonight: clothes, breakfast, first task. Save your 3pm brain from your 9am brain. That's your Mindforge move for today. Follow for tomorrow's."
+  ]
+}
