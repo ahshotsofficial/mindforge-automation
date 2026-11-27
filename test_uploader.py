@@ -55,9 +55,11 @@ class FakeChunkRequest:
 class FakeVideos:
     def __init__(self, insert_script):
         self._insert_script = insert_script
+        self.inserted_parts = []
         self.inserted_bodies = []
 
-    def insert(self, body=None, media_body=None):
+    def insert(self, part=None, body=None, media_body=None):
+        self.inserted_parts.append(part)
         self.inserted_bodies.append(body)
         return FakeChunkRequest(self._insert_script)
 

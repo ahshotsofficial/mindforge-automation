@@ -176,7 +176,8 @@ def upload_video(pkg, video_path, service, date_str=None, uploads_path=UPLOADS_L
     body = metadata_from_pkg(pkg)
     media = MediaFileUpload(str(video_path), mimetype="video/mp4",
                             chunksize=CHUNK_SIZE, resumable=True)
-    request = service.videos().insert(body=body, media_body=media)
+    request = service.videos().insert(
+        part="snippet,status", body=body, media_body=media)
 
     response = None
     status = None
