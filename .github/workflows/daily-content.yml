@@ -55,19 +55,6 @@ jobs:
           retention-days: 30
           if-no-files-found: error
 
-      - name: Diagnose OAuth secret metadata (length + whitespace only)
-        env:
-          CID:  ${{ secrets.YOUTUBE_CLIENT_ID }}
-          CSEC: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
-          RTOK: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
-        run: |
-          python - <<'PY'
-          import os
-          for k in ("CID", "CSEC", "RTOK"):
-              v = os.environ.get(k, "")
-              print(f"{k}: length={len(v)} ws={any(c.isspace() for c in v)}")
-          PY
-
       - name: Upload to YouTube (PRIVATE)
         env:
           YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
