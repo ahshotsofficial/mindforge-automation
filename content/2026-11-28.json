@@ -1,0 +1,87 @@
+{
+  "date": "2026-11-28",
+  "channel": "Mindforge",
+  "format": "YouTube Short - 60s, 9:16, stickman animation",
+  "topic": "Emotional Granularity",
+  "truth": "People who name emotions precisely (not 'bad' — 'resentful') regulate them dramatically better.",
+  "mechanism": "A vague emotion feels like weather. A precise label becomes a problem you can solve. Language IS regulation.",
+  "titles": [
+    "This Is Why Emotional Granularity Feels Unstoppable",
+    "What Emotional Granularity Actually Is (Most People Get It Wrong)",
+    "The Emotional Granularity Trick Your Brain Hides From You"
+  ],
+  "title": "This Is Why Emotional Granularity Feels Unstoppable",
+  "hook": "Watch this before you blame yourself again.",
+  "description": "Emotional Granularity — explained in 60 seconds.\n\nPeople who name emotions precisely (not 'bad' — 'resentful') regulate them dramatically better.\n\nWhat actually happens in your brain: A vague emotion feels like weather. A precise label becomes a problem you can solve. Language IS regulation.\n\nTry it today: Right now, name this week's feeling in one specific word. Not 'bad'. Go.\n\nMindforge posts one 60-second psychology explainer every day. Follow so tomorrow's video finds you.\n\n#brainscience, #emotionalgranularity, #humanbehavior, #mentalhealth, #mindforge, #mindset, #neuroscience, #psychology, #psychologyfacts, #psychologyshorts, #selfimprovement\n\n#emotionalgranularity #shorts",
+  "tags": [
+    "brainscience",
+    "emotionalgranularity",
+    "humanbehavior",
+    "mentalhealth",
+    "mindforge",
+    "mindset",
+    "neuroscience",
+    "psychology",
+    "psychologyfacts",
+    "psychologyshorts",
+    "selfimprovement"
+  ],
+  "hashtags": "#brainscience, #emotionalgranularity, #humanbehavior, #mentalhealth, #mindforge, #mindset, #neuroscience, #psychology, #psychologyfacts, #psychologyshorts, #selfimprovement",
+  "scenes": [
+    {
+      "role": "HOOK",
+      "time": "0:00 - 0:03",
+      "duration": "3s",
+      "visual": "Stickman stares at viewer, blank face. A question mark pulses above his head. Black background, single white stick figure, thick lines.",
+      "overlay": "WATCH THIS BEFORE YOU BLAME YOURSELF AGAIN.",
+      "overlay_style": "Large bold, white, center screen. Pop-in animation at 0.2s."
+    },
+    {
+      "role": "SETUP",
+      "time": "0:03 - 0:15",
+      "duration": "12s",
+      "visual": "Stickman says/thinks the common belief. Show a speech bubble: 'You're just 'stressed'.' Then a red X strikes through it. Stickman's expression changes to confusion.",
+      "overlay": "YOU'RE JUST 'STRESSED'.  ✗",
+      "overlay_style": "Speech-bubble style text, then red ✗ stamp over it at 0:08."
+    },
+    {
+      "role": "MECHANISM",
+      "time": "0:15 - 0:32",
+      "duration": "17s",
+      "visual": "Split screen: left stickman operates on 'auto' (gear icons spinning above head), right stickman 'sees the loop' (lightbulb). Simple line arrows connect them.",
+      "overlay": "People who name emotions precisely (not 'bad' —\n'resentful') regulate them dramatically better.",
+      "overlay_style": "Lower third, medium bold, white with thin black outline, appears at 0:16."
+    },
+    {
+      "role": "PROOF / CONTRAST",
+      "time": "0:32 - 0:48",
+      "duration": "16s",
+      "visual": "Stickman points at a simple chart/blackboard sketch on the wall (upward line or two contrasting bars). Keep drawing minimal: 2 shapes max.",
+      "overlay": "A 2017 Emotion journal study found\nhigher emotional granularity predicted lower escalation\ninto depression after stressful events.",
+      "overlay_style": "Side panel text (right of stickman), medium size, yellow highlight bar behind key words."
+    },
+    {
+      "role": "PAYOFF / CTA",
+      "time": "0:48 - 0:60",
+      "duration": "12s",
+      "visual": "Stickman performs the action (use a simple matching prop: phone, pen, shoe, bed). Then he turns to camera, slight nod. Channel name appears.",
+      "overlay": "Right now, name this week's feeling in one\nspecific word. Not 'bad'. Go.",
+      "overlay_style": "Center screen, bold, white. Then 'MINDFORGE' logo-text fades in bottom center at 0:55."
+    }
+  ],
+  "capcut_notes": [
+    "Canvas: 1080x1920 (9:16). Background: solid black (#000000).",
+    "Stick figure: white (#FFFFFF), round stroke caps, ~14px stroke, no face details except expression changes.",
+    "No voiceover, no music required — but a soft lo-fi loop under 30% volume is allowed.",
+    "One text style set: bold sans (Inter Black / Montserrat ExtraBold), white, 2-3px black outline.",
+    "Total text on screen never exceeds 2 blocks at once. Max ~12 words per overlay.",
+    "Export: 30fps, H.264, bitrate 12-16 Mbps, under 60 seconds for the Shorts feed."
+  ],
+  "narration": [
+    "Watch this before you blame yourself again.",
+    "You probably believe this: YOU'RE JUST 'STRESSED'. But that's not the full story.",
+    "People who name emotions precisely not 'bad', 'resentful' regulate them dramatically better. Here's what's happening: A vague emotion feels like weather. A precise label becomes a problem you can solve. Language IS regulation.",
+    "A 2017 Emotion journal study found higher emotional granularity predicted lower escalation into depression after stressful events.",
+    "Right now, name this week's feeling in one specific word. Not 'bad'. Go. That's your Mindforge move for today. Follow for tomorrow's."
+  ]
+}

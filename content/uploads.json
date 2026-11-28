@@ -6,6 +6,13 @@
       "title": "This Is Why The Zeigarnik Effect Feels Unstoppable",
       "privacy": "private",
       "uploaded_at_utc": "2026-11-27T15:43:06Z"
+    },
+    "2026-11-28": {
+      "video_id": "CCg6LNunUNE",
+      "url": "https://www.youtube.com/watch?v=CCg6LNunUNE",
+      "title": "This Is Why Emotional Granularity Feels Unstoppable",
+      "privacy": "private",
+      "uploaded_at_utc": "2026-11-28T07:04:09Z"
     }
   },
   "_note": "Upload ledger: video ids only - credentials are never stored in this file."

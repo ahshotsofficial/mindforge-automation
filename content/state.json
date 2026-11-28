@@ -1,22 +1,23 @@
 {
   "used_topics": [
-    "Flow State",
-    "The Two-Minute Rule",
-    "The Zeigarnik Effect",
-    "Time Affluence",
-    "The Effort Heuristic",
-    "The IKEA Effect",
-    "The Ben Franklin Effect",
-    "Egocentric Bias",
-    "Decision Fatigue",
-    "Anchoring",
-    "Hedonic Adaptation",
-    "Fundamental Attribution Error",
-    "Gratitude's Mechanics",
     "The Midpoint Motivation Spike",
     "The Paradox of Choice",
+    "Egocentric Bias",
+    "Self-Compassion Beats Self-Criticism",
+    "Emotional Granularity",
+    "Fundamental Attribution Error",
+    "The IKEA Effect",
+    "Decision Fatigue",
+    "Gratitude's Mechanics",
+    "The Effort Heuristic",
+    "The Zeigarnik Effect",
+    "Flow State",
+    "Anchoring",
+    "Hedonic Adaptation",
     "Dopamine Detox",
-    "Self-Compassion Beats Self-Criticism"
+    "The Two-Minute Rule",
+    "Time Affluence",
+    "The Ben Franklin Effect"
   ],
   "history": [
     "2026-11-11",
@@ -35,7 +36,8 @@
     "2026-11-24",
     "2026-11-25",
     "2026-11-26",
-    "2026-11-27"
+    "2026-11-27",
+    "2026-11-28"
   ],
   "topics_by_date": {
     "2026-11-11": "Hedonic Adaptation",
@@ -54,6 +56,7 @@
     "2026-11-24": "Decision Fatigue",
     "2026-11-25": "Fundamental Attribution Error",
     "2026-11-26": "The Effort Heuristic",
-    "2026-11-27": "The Zeigarnik Effect"
+    "2026-11-27": "The Zeigarnik Effect",
+    "2026-11-28": "Emotional Granularity"
   }
 }
